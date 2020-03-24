@@ -11,7 +11,7 @@ with open(path.join(cwd, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="micropython-mpu9886",
+    name="micropython-mpu6886",
     py_modules=["mpu6886"],
     version="0.1.0",
     description="MicroPython I2C driver for MPU6886 6-axis motion tracking device",
