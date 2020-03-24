@@ -24,7 +24,7 @@ while True:
     utime.sleep_ms(1000)
 ```
 
-By default the library returns 3-tuple of X, Y, Z axis values for either acceleration, gyroscope and magnetometer ie compass. Default units are `m/s^2`, `rad/s` and `°C`. It is possible to also get acceleration values in `g` and gyro values `deg/s`. See the example below.
+By default the library returns 3-tuple of X, Y, Z axis values for acceleration and gyroscope. Default units are `m/s^2`, `rad/s` and `°C`. It is possible to also get acceleration values in `g` and gyro values `deg/s`. See the example below.
 
 ```python
 import utime
