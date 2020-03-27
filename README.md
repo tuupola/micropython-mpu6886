@@ -69,7 +69,31 @@ timer_0.init(period=1000, mode=Timer.PERIODIC, callback=read_sensor)
 
 ## Gyro Calibration
 
-TODO
+Gyro drift can be improved with calibration. Calibration calculates and sets offsets which adjust the sensor values in rest to be close to zero on all axises.
+
+The calibration function takes two parameters: `count` is the number of samples to collect and `delay` is the delay in millisecods between the samples. With the default values of `256` and `0` calibration takes only a second. While calibration function is running the sensor should be perfectly stable. Do not touch or move it.
+
+```python
+from machine import I2C, Pin
+from mpu6886 import MPU6886
+
+i2c = I2C(scl=Pin(22), sda=Pin(21))
+
+sensor = MPU6886(i2c)
+offset = sensor.calibrate(count=256, delay=0)
+```
+
+After finishing the `calibrate()` method also returns a tuple for `offset`. Like before you could store this value somewhere and pass it to the MPU6886 constructor in the future. Below example only illustrates how to use the constructor.
+
+
+```python
+from machine import I2C, Pin
+from mpu6886 import MPU6886
+
+i2c = I2C(scl=Pin(22), sda=Pin(21))
+
+sensor = MPU6886(i2c, offset=(0.1139419, -0.08501822, -0.2589432))
+```
 
 ## License
 
